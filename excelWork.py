@@ -49,4 +49,6 @@ with open('/Users/victor/Downloads/Capital_Survey_Invites_-_New_Survey (29).csv'
           
         print("Success - Capital done")
 
-  
+# Costa Block
+# Galleon Block
+# King's Creek Block
