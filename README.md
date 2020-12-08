@@ -15,3 +15,5 @@ Next things to work on:
 * Eliminating duplicate email addresses
 * Creating new file for the output every time program is run
 * Adapting to various formats of files
+* Make date dynamic
+* set file to go to certain folder
