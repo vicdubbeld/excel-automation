@@ -3,6 +3,7 @@ import hashlib
 import binascii
 from binascii import hexlify
 from io import StringIO
+from datetime import datetime
 
 print('')
 print('-------------------------All Data from File---------------------------------')
@@ -21,12 +22,13 @@ with open('/Users/victor/Downloads/Capital_Survey_Invites_-_New_Survey (29).csv'
 print('')
 print('-------------------------Converting HashString column to MD5 Hash & HexString column to ascii hex---------------------------------')
 print('')
-
-today_date = 'python-12-09-2020'
+now = datetime.now()
+today_date = now.strftime("%m-%d-%Y")
+print("The date is: ", today_date)
 # Capital Block
 with open('/Users/victor/Downloads/Capital_Survey_Invites_-_New_Survey (29).csv') as csvfile4:
     # with open('/Users/victor/12-06-20CAPITAL.csv', "r+") as output:
-    with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+today_date+'.csv', "a") as output:
+    with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'CAPITALpython.csv', "a") as output:
         reader = csv.DictReader(csvfile4, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
         writer = csv.DictWriter(output, reader.fieldnames)
         for i, r in enumerate(reader):
@@ -47,9 +49,4 @@ with open('/Users/victor/Downloads/Capital_Survey_Invites_-_New_Survey (29).csv'
           
         print("Success - Capital done")
 
-
-
-
-
-
-        
+  
