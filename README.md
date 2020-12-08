@@ -10,7 +10,8 @@ This is an ever-evolving automation project that involves .csv files and encrypt
 * Date format will remain in "dd mmm, yyyy" format.
 
 ## Goals: 
+
 Next things to work on:
-    1. Eliminating duplicate email addresses
-    2. Creating new file for the output every time program is run
-    3. Adapting to various formats of files
+* Eliminating duplicate email addresses
+* Creating new file for the output every time program is run
+* Adapting to various formats of files
