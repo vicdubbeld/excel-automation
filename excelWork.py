@@ -81,7 +81,7 @@ data = '''\
 UniqueID, LastName,FirstName, Language, Email, Resort, SurveySent, stayMonth, stayYear, LocationID, Image, HashString, HexString
 SPI12345, Smith, Joe, EN, example@test.com, Example Resort, "03 Dec, 2020",12, 2020, 111111, image.jpg, "G, E=s:0at9n_$@b(P7.E:lC?2)Rm6MOnUniqueID=SPI1652859&locationId=547961&email=example@test.com&firstName=JOE&lastName=SMITH&city=LEXINGTON&stayMonth=12&stayYear=2020",UniqueID=SPI12345&locationId=111111&email=example@test.com&firstName=JOE&lastName=SMITH&city=LEXINGTON&stayMonth=12&stayYear=2020
 '''
-
+# data2 = ''
 
 csvfile4 = StringIO('/Users/victor/Downloads/Capital_Survey_Invites_-_New_Survey (29).csv') # open('file1')
 output = StringIO('/Users/victor/12-06-20CAPITAL.csv') # open('file2', 'w', newline='')
