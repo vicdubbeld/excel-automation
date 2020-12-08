@@ -18,3 +18,4 @@ Next things to work on:
 * Adapting to various formats of files
 * set file to go to certain folder
 * User input to delete input file once program is done executing
+* TA Template integration
