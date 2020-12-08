@@ -2,7 +2,7 @@
 
 ## About 
 
-This is an ever-evolving automation project that involves .csv files and TripAdvisor encryption.
+This is an ever-evolving automation project that involves .csv files and encryption.
 <br>
 
 ## Accomplished
