@@ -26,7 +26,7 @@ with open('/Users/victor/Downloads/Capital_Survey_Invites_-_New_Survey (29).csv'
     with open('/Users/victor/12-06-20CAPITAL.csv', "r+") as output:
         reader = csv.DictReader(csvfile4, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
         writer = csv.DictWriter(output, reader.fieldnames)
-        writer.writeheader()
+        # writer.writeheader()
         for i, r in enumerate(reader):
             # writing csv headers
             if i == 0:
