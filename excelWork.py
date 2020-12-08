@@ -4,6 +4,8 @@ import binascii
 from binascii import hexlify
 from io import StringIO
 from datetime import datetime
+import os
+import time
 
 print('')
 print('-------------------------All Data from File---------------------------------')
@@ -26,7 +28,8 @@ now = datetime.now()
 today_date = now.strftime("%m-%d-%Y")
 print("The date is: ", today_date)
 # Capital Block
-with open('/Users/victor/Downloads/Capital_Survey_Invites_-_New_Survey (29).csv') as csvfile4:
+# with open('/Users/victor/Downloads/Capital_Survey_Invites_-_New_Survey (29).csv') as csvfile4:
+with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv') as csvfile4:
     # with open('/Users/victor/12-06-20CAPITAL.csv', "r+") as output:
     with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'CAPITALpython.csv', "a") as output:
         reader = csv.DictReader(csvfile4, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
@@ -42,13 +45,16 @@ with open('/Users/victor/Downloads/Capital_Survey_Invites_-_New_Survey (29).csv'
             r['HexString'] = r['HexString'].encode().hex()
 
             writer.writerow(r)
-
+            
             
             
 
           
         print("Success - Capital done")
 
+time.sleep(5)
+
+os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv')
 # Costa Block
 # Galleon Block
 # King's Creek Block
