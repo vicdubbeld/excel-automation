@@ -9,7 +9,7 @@ import time
 import pandas as pd
 
 print('')
-print('-------------------------Converting HashString column to MD5 Hash & HexString column to ascii hex---------------------------------')
+print('-------------------------Welcome to the master automation machine---------------------------------')
 print('')
 
 now = datetime.now()
@@ -35,8 +35,11 @@ with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Su
             writer.writerow(r)   
         print("Success - Capital done")
 
+
+print("Loading next...")
+
 time.sleep(5)
-os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv')
+# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv')
 
 
 
@@ -58,14 +61,11 @@ with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_
 
             writer.writerow(r)
             
-            
-            
 
           
         print("Success - Costa done")
-
-time.sleep(5)
-os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv')
+print("Loading next...")
+# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv')
 
 
 #Galleon Block
@@ -91,9 +91,9 @@ with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv') as csvf
 
           
         print("Success - Galleon done")
-
+print("Loading next...")
 time.sleep(5)
-os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv')
+# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv')
 
 
 #King's Block
@@ -119,9 +119,9 @@ with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv
 
           
         print("Success - King's Creek done")
-
+        print("All done")
 time.sleep(5)
-os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv')
+# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv')
 
 
 
