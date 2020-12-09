@@ -6,16 +6,16 @@ This is an ever-evolving automation project that involves .csv files and encrypt
 <br>
 
 ## Accomplished
-* Certain data is converted to hash and hex. 
-* Date format will remain in "dd mmm, yyyy" format.
+* Correct data is converted to hash and hex. 
+* Date format remains in "dd mmm, yyyy" format.
 * Make date dynamic
-* Aut0 deletes input file after 5 seconds
+* Auto deletes input file after 5 seconds
+* Created new file for the output every time program is run
+* Set file to go to certain folder
 ## Goals: 
 
 Next things to work on:
 * Eliminating duplicate email addresses
-* Creating new file for the output every time program is run
-* Adapting to various formats of files
-* set file to go to certain folder
+* Use one loop to handle the various formats of files vs current state of multiple blocks
 * User input to delete input file once program is done executing
 * TA Template integration
