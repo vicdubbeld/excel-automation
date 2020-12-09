@@ -20,3 +20,4 @@ This is an ever-evolving automation project that involves .csv files and encrypt
 * User input to delete input file once program is done executing
 * TA Template integration
 * Update invite count
+* Create new columns for converted strings. Do not overwrite current data.

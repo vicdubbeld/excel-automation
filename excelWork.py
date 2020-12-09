@@ -40,7 +40,7 @@ else:
 
 print("Loading next...")
 
-time.sleep(3)
+time.sleep(.1)
 # os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv')
 
 
@@ -51,16 +51,20 @@ if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Co
         # with open('/Users/victor/12-06-20CAPITAL.csv', "r+") as output:
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'COSTA.csv', "a") as output:
             reader = csv.DictReader(csvfile3, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
-            writer = csv.DictWriter(output, reader.fieldnames)
+            # Add new columns attempt
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            writer.writeheader()
+            # fieldnames = reader.fieldnames + ['NewColum1'] 
             for i, r in enumerate(reader):
                 # writing csv headers
-                if i == 0:
-                    output.write(','.join(r) + '\n')
-
+                # if i == 0:
+                #     output.write(','.join(r) + '\n')
+        
                 # all data in HashString column replaced with hashed version of data
-                r['HashString'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
                 # all data in HexString column replaced with ascii hex version of data
-                r['HexString'] = r['HexString'].encode().hex()
+                r['TA2'] = r['HexString'].encode().hex()
 
                 writer.writerow(r)
 
