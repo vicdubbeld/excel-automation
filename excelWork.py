@@ -9,13 +9,15 @@ import time
 import pandas as pd
 
 print('')
+print('')
 print('-------------------------Welcome to the master automation machine---------------------------------')
 print('')
 
 now = datetime.now()
 today_date = now.strftime("%m-%d-%Y")
-print("Good Morning! Today is:", today_date)
-
+print("-------------------------Good Morning! Today is:", today_date, "----------------------------------")
+print('')
+print('')
 
 # Capital Block
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv') == True:
@@ -123,7 +125,7 @@ if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_C
 else: 
     print("Nothing for King's Creek today :(")
 
-print("All done")
+print("All done! Have a nice day.")
 time.sleep(3)
 # os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv')
 
