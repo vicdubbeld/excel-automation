@@ -12,7 +12,7 @@ This is an ever-evolving automation project that involves .csv files and encrypt
 * Auto deletes input file after 5 seconds
 * Created new file for the output every time program is run
 * Set file to go to certain folder
-* Eliminating duplicate email addresses
+* Eliminated duplicate email addresses
 
 ## Goals
 
