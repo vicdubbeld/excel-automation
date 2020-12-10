@@ -21,4 +21,4 @@ This is an ever-evolving automation project that involves .csv files and encrypt
 * TA Template integration
 * Update invite count
 * Create new columns for converted strings. Do not overwrite current data.
-* Create dynamic file name to optimize function.
+* Create dynamic file name to pass through as function argument.
