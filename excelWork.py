@@ -69,14 +69,18 @@ if os.path.isfile(capital) == True:
             # print(data)
    
             print("Success - Capital done")
+            time.sleep(5)
+            print("Removing input files")
+            os.remove(capital)
+            os.remove(capital2)
 else:
     print("Nothing for Capital today :(")
 
 print("Loading Capital TA...")
 
-time.sleep(1)
-# deletes input file
-# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv')
+
+
+
 
 # Capital TA Block
 if os.path.isfile(capitalta) == True:
@@ -102,16 +106,17 @@ if os.path.isfile(capitalta) == True:
                 writer.writerow(r)
             # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
             # print(data)
-   
             print("Success - Capital TA done")
+            time.sleep(5)
+            print("Removing input files")
+            os.remove(capitalta)
+            os.remove(capitalta2)
+   
 else:
     print("Nothing for Capital TA today :(")
 
 print("Loading Costa...")
 
-time.sleep(1)
-# deletes input file
-# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_TA_Only.csv')
 
 #Costa Block
 if os.path.isfile(costa) == True:
@@ -139,13 +144,15 @@ if os.path.isfile(costa) == True:
                 
                 writer.writerow(r)
             print("Success - Costa done")
+            time.sleep(5)
+            # deletes input file
+            os.remove(costa)
+            os.remove(costa2)
 else:
     print("Nothing for Costa today :(")
 
 print("Loading Costa TA...")
-time.sleep(1)
-# deletes input file
-# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv')
+
 
 #Costa TA Block
 if os.path.isfile(costata) == True:
@@ -173,13 +180,14 @@ if os.path.isfile(costata) == True:
                 
                 writer.writerow(r)
             print("Success - Costa TA done")
+            time.sleep(5)
+            # deletes input file
+            os.remove(costata)
+            os.remove(costata2)
 else:
     print("Nothing for Costa TA today because it's not Wednesday :(")
 
 print("Loading Galleon...")
-time.sleep(1)
-# deletes input file
-# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invites.csv')
 
 
 #Galleon Block
@@ -203,13 +211,14 @@ if os.path.isfile(galleon) == True:
 
                 writer.writerow(r)
             print("Success - Galleon done")
+            time.sleep(5)   
+            # deletes input file
+            os.remove(galleon)
+            os.remove(galleon2)
 else:
     print("Nothing for Galleon today :(")
 
 print("Loading Kings...")
-time.sleep(1)
-# deletes input file
-# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv')
 
 
 #King's Block
@@ -232,13 +241,14 @@ if os.path.isfile(kings) == True:
 
                 writer.writerow(r)
             print("Success - King's Creek done")
+            time.sleep(5)
+            # deletes input file
+            os.remove(kings)
+            os.remove(kings2)
 else: 
     print("Nothing for King's Creek today :(")
 
-
-time.sleep(1)
-# deletes input file
-# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv')
+print("Loading Kings TA...")
 
 #King's TA Block
 if os.path.isfile(kingsta) == True:
@@ -260,12 +270,13 @@ if os.path.isfile(kingsta) == True:
 
                 writer.writerow(r)
             print("Success - King's Creek TA done")
+            time.sleep(5)
+            # deletes input file
+            os.remove(kingsta)
+            os.remove(kingsta2)
 else: 
     print("Nothing for King's Creek TA today because it's not Wednesday :(")
 
 print("All done! Have a nice day.")
-time.sleep(1)
-# deletes input file
-# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report.csv')
 
 
