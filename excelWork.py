@@ -24,6 +24,7 @@ if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_
     with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv') as csvfile: 
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'CAPITAL.csv', "a") as output:
             reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Add new columns for hashed/hexed data
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
             writer.writeheader()
@@ -39,49 +40,51 @@ if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_
 else:
     print("Nothing for Capital today :(")
 
-print("Loading next...")
+print("Loading Costa...")
 
-time.sleep(3)
+time.sleep(1)
+# deletes input file
 # os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv')
-
 
 
 #Costa Block
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv') == True:
     with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv') as csvfile3:
-        # with open('/Users/victor/12-06-20CAPITAL.csv', "r+") as output:
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'COSTA.csv', "a") as output:
             reader = csv.DictReader(csvfile3, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
-            # Add new columns attempt
+            # Add new columns for hashed/hexed data
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
+            # Add all columns to output file
             writer.writeheader()
-            # fieldnames = reader.fieldnames + ['NewColum1'] 
-            for i, r in enumerate(reader):        
-                # all data in HashString column replaced with hashed version of data
+            # check for duplicate emails
+
+            # print(result_dups)
+            for i, r in enumerate(reader):  
+                # if value already exists in list, skip writing whole row to output file
+                
+                # all data in HashString column replaced with hashed version of data in new column
                 r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
-                # all data in HexString column replaced with ascii hex version of data
+                # all data in HexString column replaced with ascii hex version of data in new column
                 r['TA2'] = r['HexString'].encode().hex()
-
+                
                 writer.writerow(r)
-
-
-
             print("Success - Costa done")
 else:
     print("Nothing for Costa today :(")
 
-print("Loading next...")
-time.sleep(3)
+print("Loading Galleon...")
+time.sleep(1)
+# deletes input file
 # os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv')
 
 
 #Galleon Block
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv') == True:
     with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv') as csvfile3:
-        # with open('/Users/victor/12-06-20CAPITAL.csv', "r+") as output:
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'GALLEON.csv', "a") as output:
             reader = csv.DictReader(csvfile3, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Add new columns for hashed/hexed data
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
             writer.writeheader()
@@ -93,22 +96,22 @@ if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv')
                 r['TA2'] = r['HexString'].encode().hex()
 
                 writer.writerow(r)
-
             print("Success - Galleon done")
 else:
     print("Nothing for Galleon today :(")
 
-print("Loading next...")
-time.sleep(3)
+print("Loading Kings...")
+time.sleep(1)
+# deletes input file
 # os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv')
 
 
 #King's Block
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv') == True:
     with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv') as csvfile4:
-        # with open('/Users/victor/12-06-20CAPITAL.csv', "r+") as output:
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'KINGS.csv', "a") as output:
             reader = csv.DictReader(csvfile4, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Add new columns for hashed/hexed data
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
             writer.writeheader()
@@ -120,13 +123,13 @@ if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_C
                 r['TA2'] = r['HexString'].encode().hex()
 
                 writer.writerow(r)
-
             print("Success - King's Creek done")
 else: 
     print("Nothing for King's Creek today :(")
 
 print("All done! Have a nice day.")
-time.sleep(3)
+time.sleep(1)
+# deletes input file
 # os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv')
 
 
