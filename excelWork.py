@@ -21,21 +21,28 @@ print('')
 
 # Capital Block
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv') == True:
-    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv') as csvfile: 
+    # Read input file 'csvfile'
+    data = pd.read_csv(r'/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv')
+    data[~data.duplicated(subset=['Email'])].to_csv('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey (clean).csv', index=False)
+    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey (clean).csv') as csvfile: 
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'CAPITAL.csv', "a") as output:
             reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
-            # Add new columns for hashed/hexed data
+            # Define new columns for hashed/hexed data in output file
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
+            # writes column names
             writer.writeheader()
-            # fieldnames = reader.fieldnames + ['NewColum1'] 
+            # writes data to each row
             for i, r in enumerate(reader):        
                 # all data in HashString column replaced with hashed version of data
                 r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
                 # all data in HexString column replaced with ascii hex version of data
                 r['TA2'] = r['HexString'].encode().hex()
-
-                writer.writerow(r)   
+                # writes data to new file
+                writer.writerow(r)
+            # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
+            print(data)
+   
             print("Success - Capital done")
 else:
     print("Nothing for Capital today :(")
@@ -49,7 +56,10 @@ time.sleep(1)
 
 #Costa Block
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv') == True:
-    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv') as csvfile3:
+    # Read input file 'csvfile'
+    data = pd.read_csv(r'/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv')
+    data[~data.duplicated(subset=['Email'])].to_csv('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL (clean).csv', index=False)
+    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL (clean).csv') as csvfile3:
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'COSTA.csv', "a") as output:
             reader = csv.DictReader(csvfile3, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
             # Add new columns for hashed/hexed data
@@ -81,7 +91,10 @@ time.sleep(1)
 
 #Galleon Block
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv') == True:
-    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv') as csvfile3:
+    # Read input file 'csvfile'
+    data = pd.read_csv(r'/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites.csv')
+    data[~data.duplicated(subset=['Email'])].to_csv('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites (clean).csv', index=False)
+    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Galleon_-_Invites (clean).csv') as csvfile3:
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'GALLEON.csv', "a") as output:
             reader = csv.DictReader(csvfile3, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
             # Add new columns for hashed/hexed data
@@ -108,7 +121,9 @@ time.sleep(1)
 
 #King's Block
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv') == True:
-    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv') as csvfile4:
+    data = pd.read_csv(r'/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv')
+    data[~data.duplicated(subset=['Email'])].to_csv('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek (clean).csv', index=False)
+    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek (clean).csv') as csvfile4:
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'KINGS.csv', "a") as output:
             reader = csv.DictReader(csvfile4, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
             # Add new columns for hashed/hexed data
