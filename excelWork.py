@@ -23,6 +23,7 @@ print('')
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv') == True:
     # Read input file 'csvfile'
     data = pd.read_csv(r'/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv')
+    # creates new file with duplicated data dropped
     data[~data.duplicated(subset=['Email'])].to_csv('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey (clean).csv', index=False)
     with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey (clean).csv') as csvfile: 
         with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'CAPITAL.csv', "a") as output:
@@ -41,18 +42,52 @@ if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_
                 # writes data to new file
                 writer.writerow(r)
             # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
-            print(data)
+            # print(data)
    
             print("Success - Capital done")
 else:
     print("Nothing for Capital today :(")
 
-print("Loading Costa...")
+print("Loading CapitalTA...")
 
 time.sleep(1)
 # deletes input file
 # os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_New_Survey.csv')
 
+# Capital TA Block
+if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_TA_Only.csv') == True:
+    # Read input file 'csvfile'
+    data = pd.read_csv(r'/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_TA_Only.csv')
+    # creates new file with duplicated data dropped
+    data[~data.duplicated(subset=['Email'])].to_csv('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_TA_Only (clean).csv', index=False)
+    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_TA_Only (clean).csv') as csvfile: 
+        with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'CAPITALTA.csv', "a") as output:
+            reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Define new columns for hashed/hexed data in output file
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            # writes column names
+            writer.writeheader()
+            # writes data to each row
+            for i, r in enumerate(reader):        
+                # all data in HashString column replaced with hashed version of data
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                # all data in HexString column replaced with ascii hex version of data
+                r['TA2'] = r['HexString'].encode().hex()
+                # writes data to new file
+                writer.writerow(r)
+            # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
+            # print(data)
+   
+            print("Success - Capital TA done")
+else:
+    print("Nothing for Capital TA today :(")
+
+print("Loading Costa...")
+
+time.sleep(1)
+# deletes input file
+# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Capital_Survey_Invites_-_TA_Only.csv')
 
 #Costa Block
 if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv') == True:
@@ -83,10 +118,44 @@ if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Co
 else:
     print("Nothing for Costa today :(")
 
-print("Loading Galleon...")
+print("Loading Costa TA...")
 time.sleep(1)
 # deletes input file
 # os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_File_-_Costa_Sur_ALL.csv')
+
+#Costa TA Block
+if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invites.csv') == True:
+    # Read input file 'csvfile'
+    data = pd.read_csv(r'/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invites.csv')
+    data[~data.duplicated(subset=['Email'])].to_csv('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invites (clean).csv', index=False)
+    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invites (clean).csv') as csvfile3:
+        with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'COSTATA.csv', "a") as output:
+            reader = csv.DictReader(csvfile3, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Add new columns for hashed/hexed data
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            # Add all columns to output file
+            writer.writeheader()
+            # check for duplicate emails
+
+            # print(result_dups)
+            for i, r in enumerate(reader):  
+                # if value already exists in list, skip writing whole row to output file
+                
+                # all data in HashString column replaced with hashed version of data in new column
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                # all data in HexString column replaced with ascii hex version of data in new column
+                r['TA2'] = r['HexString'].encode().hex()
+                
+                writer.writerow(r)
+            print("Success - Costa TA done")
+else:
+    print("Nothing for Costa TA today because it's not Wednesday :(")
+
+print("Loading Galleon...")
+time.sleep(1)
+# deletes input file
+# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invites.csv')
 
 
 #Galleon Block
@@ -146,5 +215,33 @@ print("All done! Have a nice day.")
 time.sleep(1)
 # deletes input file
 # os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Kings_Creek.csv')
+
+#King's TA Block
+if os.path.isfile('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report.csv') == True:
+    data = pd.read_csv(r'/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report.csv')
+    data[~data.duplicated(subset=['Email Address'])].to_csv('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report (clean).csv', index=False)
+    with open('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report (clean).csv') as csvfile4:
+        with open('/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'KINGSTA.csv', "a") as output:
+            reader = csv.DictReader(csvfile4, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Add new columns for hashed/hexed data
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            writer.writeheader()
+            # fieldnames = reader.fieldnames + ['NewColum1'] 
+            for i, r in enumerate(reader):        
+                # all data in HashString column replaced with hashed version of data
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                # all data in HexString column replaced with ascii hex version of data
+                r['TA2'] = r['HexString'].encode().hex()
+
+                writer.writerow(r)
+            print("Success - King's Creek TA done")
+else: 
+    print("Nothing for King's Creek TA today because it's not Wednesday :(")
+
+print("All done! Have a nice day.")
+time.sleep(1)
+# deletes input file
+# os.remove('/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report.csv')
 
 
