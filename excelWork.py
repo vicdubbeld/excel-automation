@@ -12,19 +12,16 @@ import threading
 import time
 import sys
 
-
-
-
-
+now = datetime.now()
+today_date = now.strftime("%m-%d-%Y" + " %H:%M:%S")
 
 print('')
 print('')
 print('-------------------------Welcome to the master automation machine---------------------------------')
 print('')
 print('')
-now = datetime.now()
-today_date = now.strftime("%m-%d-%Y" + " %H:%M:%S")
-print("-------------------------Good Morning! Today is:", today_date, "----------------------------------")
+time.sleep(1)
+print("-------------------------Today is:", today_date, "-----------------------------")
 print('')
 print('')
 
@@ -52,7 +49,7 @@ kingsta = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report.csv'
 kingsta2 = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report (clean).csv'
 kingsta3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'KINGSTA.csv'
 
-
+time.sleep(1)
 print("Loading Capital")
 # Capital Block
 if os.path.isfile(capital) == True:
@@ -78,20 +75,17 @@ if os.path.isfile(capital) == True:
                 writer.writerow(r)
             # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
             # print(data)
-            time.sleep(2)
+            time.sleep(1)
             print("Success - Capital done")
-            time.sleep(2)
+            time.sleep(1)
             print("Removing input files...")
             # os.remove(capital)
             os.remove(capital2)
 else:
-    time.sleep(2)
+    time.sleep(1)
     print("Nothing for Capital today :(")
-time.sleep(2)
+time.sleep(1)
 print("Loading Capital TA...")
-
-
-
 
 
 # Capital TA Block
@@ -118,17 +112,17 @@ if os.path.isfile(capitalta) == True:
                 writer.writerow(r)
             # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
             # print(data)
-            time.sleep(2)
+            time.sleep(1)
             print("Success - Capital TA done")
-            time.sleep(2)
+            time.sleep(1)
             print("Removing input files")
             os.remove(capitalta)
             os.remove(capitalta2)
    
 else:
-    time.sleep(2)
+    time.sleep(1)
     print("Nothing for Capital TA today :(")
-time.sleep(2)
+time.sleep(1)
 print("Loading Costa...")
 
 
@@ -159,16 +153,16 @@ if os.path.isfile(costa) == True:
                 writer.writerow(r)
 
 
-            time.sleep(2)    
+            time.sleep(1)    
             print("Success - Costa done")
-            time.sleep(2)
+            time.sleep(1)
             # deletes input file
             os.remove(costa)
             os.remove(costa2)
 else:
-    time.sleep(2)
+    time.sleep(1)
     print("Nothing for Costa today :(")
-time.sleep(2)
+time.sleep(1)
 print("Loading Costa TA...")
 
 
@@ -198,16 +192,16 @@ if os.path.isfile(costata) == True:
                 
                 writer.writerow(r)
 
-            time.sleep(2)    
+            time.sleep(1)    
             print("Success - Costa TA done")
-            time.sleep(2)
+            time.sleep(1)
             # deletes input file
             os.remove(costata)
             os.remove(costata2)
 else:
-    time.sleep(2)
+    time.sleep(1)
     print("Nothing for Costa TA today because it's not Wednesday :(")
-time.sleep(2)
+time.sleep(1)
 print("Loading Galleon...")
 
 
@@ -231,16 +225,16 @@ if os.path.isfile(galleon) == True:
                 r['TA2'] = r['HexString'].encode().hex()
 
                 writer.writerow(r)
-            time.sleep(2)
+            time.sleep(1)
             print("Success - Galleon done")
-            time.sleep(2)   
+            time.sleep(1)   
             # deletes input file
             os.remove(galleon)
             os.remove(galleon2)
 else:
-    time.sleep(2)
+    time.sleep(1)
     print("Nothing for Galleon today :(")
-time.sleep(2)
+time.sleep(1)
 print("Loading Kings...")
 
 
@@ -263,16 +257,16 @@ if os.path.isfile(kings) == True:
                 r['TA2'] = r['HexString'].encode().hex()
 
                 writer.writerow(r)
-            time.sleep(2)
+            time.sleep(1)
             print("Success - King's Creek done")
-            time.sleep(2)
+            time.sleep(1)
             # deletes input file
             os.remove(kings)
             os.remove(kings2)
 else:
-    time.sleep(2) 
+    time.sleep(1) 
     print("Nothing for King's Creek today :(")
-time.sleep(2)
+time.sleep(1)
 print("Loading Kings TA...")
 
 #King's TA Block
@@ -301,9 +295,13 @@ if os.path.isfile(kingsta) == True:
             os.remove(kingsta)
             os.remove(kingsta2)
 else:
-    time.sleep(2) 
+    time.sleep(1) 
     print("Nothing for King's Creek TA today because it's not Wednesday :(")
-time.sleep(2)
-print("All done! Have a nice day.")
+time.sleep(1)
+print('')
+print('')
+print("All done! Now go make yourself a nice cup of coffee. You deserve it after all the hard work.")
+print('')
+print('')
 
 
