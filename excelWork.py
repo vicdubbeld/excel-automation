@@ -13,15 +13,15 @@ import time
 import sys
 
 now = datetime.now()
-today_date = now.strftime("%m-%d-%Y" + " %H:%M:%S")
-
+today_date = now.strftime("%m-%d-%Y")
+today_date2 = now.strftime("%m-%d-%Y" + " %H:%M:%S")
 print('')
 print('')
 print('-------------------------Welcome to the master automation machine---------------------------------')
 print('')
 print('')
 time.sleep(1)
-print("-------------------------Today is:", today_date, "-----------------------------")
+print("-------------------------Today is:", today_date2, "-----------------------------")
 print('')
 print('')
 
@@ -79,8 +79,8 @@ if os.path.isfile(capital) == True:
             print("Success - Capital done")
             time.sleep(1)
             print("Removing input files...")
-            os.remove(capital)
-            os.remove(capital2)
+            # os.remove(capital)
+            # os.remove(capital2)
 else:
     time.sleep(1)
     print("Nothing for Capital today :(")
@@ -116,8 +116,8 @@ if os.path.isfile(capitalta) == True:
             print("Success - Capital TA done")
             time.sleep(1)
             print("Removing input files")
-            os.remove(capitalta)
-            os.remove(capitalta2)
+            # os.remove(capitalta)
+            # os.remove(capitalta2)
    
 else:
     time.sleep(1)
@@ -157,8 +157,8 @@ if os.path.isfile(costa) == True:
             print("Success - Costa done")
             time.sleep(1)
             # deletes input file
-            os.remove(costa)
-            os.remove(costa2)
+            # os.remove(costa)
+            # os.remove(costa2)
 else:
     time.sleep(1)
     print("Nothing for Costa today :(")
@@ -196,8 +196,8 @@ if os.path.isfile(costata) == True:
             print("Success - Costa TA done")
             time.sleep(1)
             # deletes input file
-            os.remove(costata)
-            os.remove(costata2)
+            # os.remove(costata)
+            # os.remove(costata2)
 else:
     time.sleep(1)
     print("Nothing for Costa TA today because it's not Wednesday :(")
@@ -229,8 +229,8 @@ if os.path.isfile(galleon) == True:
             print("Success - Galleon done")
             time.sleep(1)   
             # deletes input file
-            os.remove(galleon)
-            os.remove(galleon2)
+            # os.remove(galleon)
+            # os.remove(galleon2)
 else:
     time.sleep(1)
     print("Nothing for Galleon today :(")
@@ -261,8 +261,8 @@ if os.path.isfile(kings) == True:
             print("Success - King's Creek done")
             time.sleep(1)
             # deletes input file
-            os.remove(kings)
-            os.remove(kings2)
+            # os.remove(kings)
+            # os.remove(kings2)
 else:
     time.sleep(1) 
     print("Nothing for King's Creek today :(")
@@ -292,8 +292,8 @@ if os.path.isfile(kingsta) == True:
             print("Success - King's Creek TA done")
             time.sleep(2)
             # deletes input file
-            os.remove(kingsta)
-            os.remove(kingsta2)
+            # os.remove(kingsta)
+            # os.remove(kingsta2)
 else:
     time.sleep(1) 
     print("Nothing for King's Creek TA today because it's not Wednesday :(")
