@@ -14,11 +14,11 @@ This is an ever-evolving automation project that involves .csv files and encrypt
 * Set file to go to certain folder
 * Eliminated duplicate email addresses
 * Create new columns for converted strings. Do not overwrite current data.
+* TA Template integration
 
 ## Goals
 
 * Use one loop to handle the various formats of files vs current state of multiple blocks
 * User input to delete input file once program is done executing
-* TA Template integration
 * Update invite count tracker file
 
