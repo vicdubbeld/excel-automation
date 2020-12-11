@@ -79,7 +79,7 @@ if os.path.isfile(capital) == True:
             print("Success - Capital done")
             time.sleep(1)
             print("Removing input files...")
-            # os.remove(capital)
+            os.remove(capital)
             os.remove(capital2)
 else:
     time.sleep(1)
