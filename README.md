@@ -15,10 +15,10 @@ This is an ever-evolving automation project that involves .csv files and encrypt
 * Eliminated duplicate email addresses
 * Create new columns for converted strings. Do not overwrite current data.
 * TA Template integration
+* Invite count returned for each file
 
 ## Goals
 
 * Use one loop to handle the various formats of files vs current state of multiple blocks
 * User input to delete input file once program is done executing
-* Update invite count tracker file
 
