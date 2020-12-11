@@ -60,6 +60,9 @@ if os.path.isfile(capital) == True:
     with open(capital2) as csvfile: 
         with open(capital3, "a") as output:
             reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Counts # of records
+            row_count = len(list(reader))
+            print("The count is: ", row_count)
             # Define new columns for hashed/hexed data in output file
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
@@ -97,6 +100,9 @@ if os.path.isfile(capitalta) == True:
     with open(capitalta2) as csvfile: 
         with open(capitalta3, "a") as output:
             reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+             # Counts # of records
+            row_count = len(list(reader))
+            print("The count is: ", row_count)
             # Define new columns for hashed/hexed data in output file
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
@@ -134,6 +140,9 @@ if os.path.isfile(costa) == True:
     with open(costa2) as csvfile3:
         with open(costa3, "a") as output:
             reader = csv.DictReader(csvfile3, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+             # Counts # of records
+            row_count = len(list(reader))
+            print("The count is: ", row_count)
             # Add new columns for hashed/hexed data
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
@@ -174,6 +183,9 @@ if os.path.isfile(costata) == True:
     with open(costata2) as csvfile3:
         with open(costata3, "a") as output:
             reader = csv.DictReader(csvfile3, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+             # Counts # of records
+            row_count = len(list(reader))
+            print("The count is: ", row_count)
             # Add new columns for hashed/hexed data
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
@@ -213,6 +225,9 @@ if os.path.isfile(galleon) == True:
     with open(galleon2) as csvfile3:
         with open(galleon3, "a") as output:
             reader = csv.DictReader(csvfile3, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+             # Counts # of records
+            row_count = len(list(reader))
+            print("The count is: ", row_count)
             # Add new columns for hashed/hexed data
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
@@ -245,6 +260,9 @@ if os.path.isfile(kings) == True:
     with open(kings2) as csvfile4:
         with open(kings3, "a") as output:
             reader = csv.DictReader(csvfile4, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+             # Counts # of records
+            row_count = len(list(reader))
+            print("The count is: ", row_count)
             # Add new columns for hashed/hexed data
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
@@ -276,6 +294,9 @@ if os.path.isfile(kingsta) == True:
     with open(kingsta2) as csvfile4:
         with open(kingsta3, "a") as output:
             reader = csv.DictReader(csvfile4, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+             # Counts # of records
+            row_count = len(list(reader))
+            print("The count is: ", row_count)
             # Add new columns for hashed/hexed data
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
             writer = csv.DictWriter(output, fieldnames)
@@ -298,6 +319,8 @@ else:
     time.sleep(1) 
     print("Nothing for King's Creek TA today because it's not Wednesday :(")
 time.sleep(1)
+
+
 print('')
 print('')
 print("All done! Now go make yourself a nice cup of coffee. You deserve it after all the hard work.")
