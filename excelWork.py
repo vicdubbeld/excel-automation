@@ -11,6 +11,7 @@ import itertools
 import threading
 import time
 import sys
+from selenium import webdriver
 
 now = datetime.now()
 today_date = now.strftime("%m-%d-%Y")
@@ -313,3 +314,9 @@ print('')
 print('')
 
 
+# Web Scraper to upload to contact manager
+
+print('')
+print("Let the webscraping begin! \n")
+
+url = 'https://survey.intuitionbrandmarketing.com/Member/ContactView/List.action'
