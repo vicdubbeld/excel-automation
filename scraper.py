@@ -14,22 +14,27 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 # userID = driver.find_element_by_xpath('//*[@id="login"]')
 # auto log into site
 
+# login 
 driver.get(url)
-driver.find_element_by_xpath('//*[@id="login"]').send_keys("{email}")
-driver.find_element_by_xpath('//*[@id="password"]').send_keys("{password}")
+driver.find_element_by_xpath('//*[@id="login"]').send_keys("email")
+driver.find_element_by_xpath('//*[@id="password"]').send_keys("password")
 driver.find_element_by_id("loginButton").click()
 print('success')
 
+# contacts tab
 driver.find_element_by_name('LABEL_CONTACTS').click()
 # keys("shift") x 2
 actions = ActionChains(driver)
+
+# capital
 n = 18
 actions.send_keys(Keys. TAB * n)
 actions.send_keys(Keys. ENTER)
 actions.perform()
 
-# driver.find_element_by_xpath('/html/body/form/div[3]/ul/li[5]/a').click()
+time.sleep(5)
 
+# import
+driver.find_element_by_xpath('//*[@id="divImport"]').click()
+# driver.find_element_by_id('divImport').click()
 
-# site_login()
-# browser.find_element_by_xpath('//*[@id="treeViewNode_1_-41512190_1_41512190"]').click()
