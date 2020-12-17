@@ -16,8 +16,8 @@ now = datetime.now()
 today_date = now.strftime("%m-%d-%Y")
 
 # login credentials 
-user = 'victordubbeld@intuitionbrandmarketing.com'
-password = 'intuition'
+user = 'email'
+password = 'password'
 
 # Defining paths to files that will be uploaded in contact manager
 capital_test = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'CAPITAL.csv'
