@@ -19,6 +19,7 @@ This is an ever-evolving automation project that involves .csv files and encrypt
 
 ## Goals
 
+* Integrate scraper into main py file
 * Use one loop to handle the various formats of files vs current state of multiple blocks
 * User input to delete input file once program is done executing
 * Invite count returned for each file
