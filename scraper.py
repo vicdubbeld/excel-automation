@@ -11,14 +11,13 @@ import os
 # URL to be used
 url = 'https://survey.intuitionbrandmarketing.com/Member/ContactView/List.action'
 
-
 # Establishing time 
 now = datetime.now()
 today_date = now.strftime("%m-%d-%Y")
 
 # login credentials 
-user = 'username'
-password = 'password'
+user = 'victordubbeld@intuitionbrandmarketing.com'
+password = 'intuition'
 
 # Defining paths to files that will be uploaded in contact manager
 capital_test = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'CAPITAL.csv'
@@ -39,13 +38,16 @@ def login():
     time.sleep(3)
     # contacts tab
     driver.find_element_by_name('LABEL_CONTACTS').click()
-    # keys("shift") x 2
-    actions = ActionChains(driver)
-    print('navigating to contacts...\n')
 
 login()
 
 # CAPITAL TEST block
+
+# tabbing to CAPITAL TEST
+
+# keys("shift") x 2
+actions = ActionChains(driver)
+print('navigating to contacts...\n')
 
 n = 19
 actions.send_keys(Keys. TAB * n)
@@ -54,14 +56,15 @@ actions.perform()
 print('Capital Test Selected...\n')
 time.sleep(3)
 
-# import button 
+# Selects import button 
 time.sleep(2)
 driver.find_element_by_xpath('//*[@id="divImport"]').click()
+
 # import page -> set up new import
 time.sleep(2)
 driver.find_element_by_xpath('//*[@id="mainIncludeContainer"]/table/tbody/tr/td/div[1]/button').click()
 print('setting up new import...\n')
-# choose file
+# chooses file
 time.sleep(2)
 driver.find_element_by_name('localLocation').send_keys(os.path.join(os.getcwd(), capital_test))
 print('choosing file...\n')
@@ -69,3 +72,6 @@ driver.find_element_by_xpath('/html/body/div[1]/div/div[5]/button[2]').click()
 time.sleep(2)
 driver.find_element_by_xpath('/html/body/div[1]/div/div[5]/button[2]').click()
 driver.find_element_by_xpath('//*[@id="theForm"]/div[1]/button[2]').click()
+
+# Navigate to Surveys tab
+# Only launch surveys for clients who had files imported into contact manager...
