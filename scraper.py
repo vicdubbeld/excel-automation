@@ -8,6 +8,10 @@ import os
 
 # Web Scraper to upload to contact manager
 
+# URL to be used
+url = 'https://survey.intuitionbrandmarketing.com/Member/ContactView/List.action'
+
+
 # Establishing time 
 now = datetime.now()
 today_date = now.strftime("%m-%d-%Y")
@@ -19,14 +23,11 @@ password = 'password'
 # Defining paths to files that will be uploaded in contact manager
 capital_test = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'CAPITAL.csv'
 
-
-print('')
-print("Let the webscraping begin! \n")
-
-url = 'https://survey.intuitionbrandmarketing.com/Member/ContactView/List.action'
+# Chrome established as browser (will check for compatibility)
 driver = webdriver.Chrome(ChromeDriverManager().install())
-# userID = driver.find_element_by_xpath('//*[@id="login"]')
-# auto log into site
+
+print("\nLet the webscraping begin! \n")
+
 
 # login 
 def login():
@@ -44,8 +45,8 @@ def login():
 
 login()
 
-# capital
-# selects CAPITAL TEST
+# CAPITAL TEST block
+
 n = 19
 actions.send_keys(Keys. TAB * n)
 actions.send_keys(Keys. ENTER)

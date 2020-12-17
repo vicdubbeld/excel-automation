@@ -15,6 +15,7 @@ This is an ever-evolving automation project that involves .csv files and encrypt
 * Eliminated duplicate email addresses
 * Create new columns for converted strings. Do not overwrite current data.
 * TA Template integration
+* Web scraper can auto upload contacts to survey platform
 
 ## Goals
 
