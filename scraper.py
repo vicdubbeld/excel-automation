@@ -73,5 +73,9 @@ time.sleep(2)
 driver.find_element_by_xpath('/html/body/div[1]/div/div[5]/button[2]').click()
 driver.find_element_by_xpath('//*[@id="theForm"]/div[1]/button[2]').click()
 
-# Navigate to Surveys tab
+# Next step...navigate to Surveys tab
+# Further down the line...
+
 # Only launch surveys for clients who had files imported into contact manager...
+# In contact manager page, each one has a set # of times to press TAB in order to navigate to it. 
+# Other than that, everything should be the same process up until launching the surveys
