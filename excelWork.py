@@ -50,6 +50,21 @@ kings3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+
 kingsta = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report.csv'
 kingsta2 = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/TA_Survey_Invite_Report (clean).csv'
 kingsta3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'KINGSTA.csv'
+rmcg = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/RMCG_-_Invites.csv'
+rmcg2 = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/RMCG_-_Invites (clean).csv'
+rmcg3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'RMCG.csv'
+occidental = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_File_-_Occidental_ALL.csv'
+occidental2 = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_File_-_Occidental_ALL (clean).csv'
+occidental3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'OCCIDENTAL.csv'
+prestige = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Prestige_English.csv'
+prestige2 = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_Prestige_English (clean).csv'
+prestige3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'PRESTIGE.csv'
+uvc = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_UVC_ALL.csv'
+uvc2 = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_UVC_ALL (clean).csv'
+uvc3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'UVC.csv'
+grandres = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/GR_-_Invites.csv'
+grandres2 = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/GR_-_Invites (clean).csv'
+grandres3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'GRANDRES.csv'
 
 time.sleep(1)
 print("Loading Capital\n")
@@ -84,7 +99,6 @@ if os.path.isfile(capital) == True:
             # os.remove(capital)
             # os.remove(capital2)
 else:
-    time.sleep(1)
     print("Nothing for Capital today :(")
 time.sleep(1)
 print("Loading Capital TA...\n")
@@ -122,7 +136,6 @@ if os.path.isfile(capitalta) == True:
             # os.remove(capitalta2)
    
 else:
-    time.sleep(1)
     print("Nothing for Capital TA today :(\n")
 time.sleep(1)
 print("Loading Costa...\n")
@@ -164,7 +177,6 @@ if os.path.isfile(costa) == True:
             # os.remove(costa)
             # os.remove(costa2)
 else:
-    time.sleep(1)
     print("Nothing for Costa today :(\n")
 time.sleep(1)
 print("Loading Costa TA...\n")
@@ -204,7 +216,6 @@ if os.path.isfile(costata) == True:
             # os.remove(costata)
             # os.remove(costata2)
 else:
-    time.sleep(1)
     print("Nothing for Costa TA today because it's not Wednesday :(\n")
 time.sleep(1)
 print("Loading Galleon...\n")
@@ -238,7 +249,6 @@ if os.path.isfile(galleon) == True:
             # os.remove(galleon)
             # os.remove(galleon2)
 else:
-    time.sleep(1)
     print("Nothing for Galleon today :(\n")
 time.sleep(1)
 print("Loading Kings...\n")
@@ -271,7 +281,6 @@ if os.path.isfile(kings) == True:
             # os.remove(kings)
             # os.remove(kings2)
 else:
-    time.sleep(1) 
     print("Nothing for King's Creek today :(\n")
 time.sleep(1)
 print("Loading Kings TA...\n")
@@ -303,26 +312,190 @@ if os.path.isfile(kingsta) == True:
             # os.remove(kingsta)
             # os.remove(kingsta2)
 else:
-    time.sleep(1) 
     print("Nothing for King's Creek TA today because it's not Wednesday :(\n")
 time.sleep(1)
 
+print("Loading RMCG\n")
+# Capital Block
+if os.path.isfile(rmcg) == True:
+    # Read input file 'csvfile'
+    data = pd.read_csv(rmcg)
+    # creates new file with duplicated data dropped
+    data[~data.duplicated(subset=['Email'])].to_csv(rmcg2, index=False)
+    with open(rmcg2) as csvfile: 
+        with open(rmcg3, "a") as output:
+            reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Define new columns for hashed/hexed data in output file
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            # writes column names
+            writer.writeheader()
+            # writes data to each row
+            for i, r in enumerate(reader):        
+                # all data in HashString column replaced with hashed version of data
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                # all data in HexString column replaced with ascii hex version of data
+                r['TA2'] = r['HexString'].encode().hex()
+                # writes data to new file
+                writer.writerow(r)
+            # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
+            # print(data)
+            time.sleep(1)
+            print("Success - RMCG done")
+            time.sleep(1)
+            print("Removing input files...\n")
+            # os.remove(capital)
+            # os.remove(capital2)
+else:
+    print("Nothing for RMCG today :(")
+
+# occidental (weekly on wednesdays)
+time.sleep(1)
+print("Loading Occidental\n")
+# Capital Block
+if os.path.isfile(occidental) == True:
+    # Read input file 'csvfile'
+    data = pd.read_csv(occidental)
+    # creates new file with duplicated data dropped
+    data[~data.duplicated(subset=['Email'])].to_csv(occidental2, index=False)
+    with open(occidental2) as csvfile: 
+        with open(occidental3, "a") as output:
+            reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Define new columns for hashed/hexed data in output file
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            # writes column names
+            writer.writeheader()
+            # writes data to each row
+            for i, r in enumerate(reader):        
+                # all data in HashString column replaced with hashed version of data
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                # all data in HexString column replaced with ascii hex version of data
+                r['TA2'] = r['HexString'].encode().hex()
+                # writes data to new file
+                writer.writerow(r)
+            # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
+            # print(data)
+            time.sleep(1)
+            print("Success - Occidental done")
+            time.sleep(1)
+            print("Removing input files...\n")
+            # os.remove(capital)
+            # os.remove(capital2)
+else:
+    print("Nothing for occidental today because it's not Wednesday :(")
+
+# prestige
+time.sleep(1)
+print("Loading Prestige\n")
+# Capital Block
+if os.path.isfile(prestige) == True:
+    # Read input file 'csvfile'
+    data = pd.read_csv(prestige)
+    # creates new file with duplicated data dropped
+    data[~data.duplicated(subset=['Email'])].to_csv(prestige2, index=False)
+    with open(prestige2) as csvfile: 
+        with open(prestige3, "a") as output:
+            reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Define new columns for hashed/hexed data in output file
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            # writes column names
+            writer.writeheader()
+            # writes data to each row
+            for i, r in enumerate(reader):        
+                # all data in HashString column replaced with hashed version of data
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                # all data in HexString column replaced with ascii hex version of data
+                r['TA2'] = r['HexString'].encode().hex()
+                # writes data to new file
+                writer.writerow(r)
+            # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
+            # print(data)
+            time.sleep(1)
+            print("Success - Prestige done")
+            time.sleep(1)
+            print("Removing input files...\n")
+            # os.remove(capital)
+            # os.remove(capital2)
+else:
+    print("Nothing for Prestige today :(")
+# uvc
+time.sleep(1)
+print("Loading UVC\n")
+# Capital Block
+if os.path.isfile(uvc) == True:
+    # Read input file 'csvfile'
+    data = pd.read_csv(uvc)
+    # creates new file with duplicated data dropped
+    data[~data.duplicated(subset=['Email'])].to_csv(uvc2, index=False)
+    with open(uvc2) as csvfile: 
+        with open(uvc3, "a") as output:
+            reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Define new columns for hashed/hexed data in output file
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            # writes column names
+            writer.writeheader()
+            # writes data to each row
+            for i, r in enumerate(reader):        
+                # all data in HashString column replaced with hashed version of data
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                # all data in HexString column replaced with ascii hex version of data
+                r['TA2'] = r['HexString'].encode().hex()
+                # writes data to new file
+                writer.writerow(r)
+            # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
+            # print(data)
+            time.sleep(1)
+            print("Success - UVC done")
+            time.sleep(1)
+            print("Removing input files...\n")
+            # os.remove(capital)
+            # os.remove(capital2)
+else:
+    print("Nothing for UVC today :(")
+# grandres
+time.sleep(1)
+print("Loading Grand Res\n")
+# Capital Block
+if os.path.isfile(grandres) == True:
+    # Read input file 'csvfile'
+    data = pd.read_csv(grandres)
+    # creates new file with duplicated data dropped
+    data[~data.duplicated(subset=['Email'])].to_csv(grandres2, index=False)
+    with open(grandres2) as csvfile: 
+        with open(grandres3, "a") as output:
+            reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Define new columns for hashed/hexed data in output file
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            # writes column names
+            writer.writeheader()
+            # writes data to each row
+            for i, r in enumerate(reader):        
+                # all data in HashString column replaced with hashed version of data
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                # all data in HexString column replaced with ascii hex version of data
+                r['TA2'] = r['HexString'].encode().hex()
+                # writes data to new file
+                writer.writerow(r)
+            # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
+            # print(data)
+            time.sleep(1)
+            print("Success - Grand Res done")
+            time.sleep(1)
+            print("Removing input files...\n")
+            # os.remove(capital)
+            # os.remove(capital2)
+else:
+    print("Nothing for Grand Res today :(")
 
 print('')
 print("All done! Now go make yourself a nice cup of coffee. You deserve it after all the hard work.")
 print('')
-print('')
 
-
-# Web Scraper to upload to contact manager
-
-print('')
-print("Let the webscraping begin! \n")
-
-url = 'https://survey.intuitionbrandmarketing.com/Member/ContactView/List.action'
-browser = webdriver.Chrome()
-
-browser.find_element_by_xpath('//*[@id=treeViewNode_1_-41512190_1_41512190"]').click()
+# Web Scraper in the works...
 
 
 
