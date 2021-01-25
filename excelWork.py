@@ -96,8 +96,8 @@ if os.path.isfile(capital) == True:
             print("Success - Capital done")
             time.sleep(1)
             print("Removing input files...\n")
-            # os.remove(capital)
-            # os.remove(capital2)
+            os.remove(capital)
+            os.remove(capital2)
 else:
     print("Nothing for Capital today :(")
 time.sleep(1)
@@ -132,8 +132,8 @@ if os.path.isfile(capitalta) == True:
             print("Success - Capital TA done")
             time.sleep(1)
             print("Removing input files\n")
-            # os.remove(capitalta)
-            # os.remove(capitalta2)
+            os.remove(capitalta)
+            os.remove(capitalta2)
    
 else:
     print("Nothing for Capital TA today :(\n")
@@ -174,8 +174,8 @@ if os.path.isfile(costa) == True:
             time.sleep(1)
             print("Removing input files\n")
             # deletes input file
-            # os.remove(costa)
-            # os.remove(costa2)
+            os.remove(costa)
+            os.remove(costa2)
 else:
     print("Nothing for Costa today :(\n")
 time.sleep(1)
@@ -213,8 +213,8 @@ if os.path.isfile(costata) == True:
             time.sleep(1)
             print("Removing input files\n")
             # deletes input file
-            # os.remove(costata)
-            # os.remove(costata2)
+            os.remove(costata)
+            os.remove(costata2)
 else:
     print("Nothing for Costa TA today because it's not Wednesday :(\n")
 time.sleep(1)
@@ -246,8 +246,8 @@ if os.path.isfile(galleon) == True:
             time.sleep(1)  
             print("Removing input files\n") 
             # deletes input file
-            # os.remove(galleon)
-            # os.remove(galleon2)
+            os.remove(galleon)
+            os.remove(galleon2)
 else:
     print("Nothing for Galleon today :(\n")
 time.sleep(1)
@@ -278,8 +278,8 @@ if os.path.isfile(kings) == True:
             time.sleep(1)
             print("Removing input files\n") 
             # deletes input file
-            # os.remove(kings)
-            # os.remove(kings2)
+            os.remove(kings)
+            os.remove(kings2)
 else:
     print("Nothing for King's Creek today :(\n")
 time.sleep(1)
@@ -309,8 +309,8 @@ if os.path.isfile(kingsta) == True:
             time.sleep(1)
             print("Removing input files\n") 
             # deletes input file
-            # os.remove(kingsta)
-            # os.remove(kingsta2)
+            os.remove(kingsta)
+            os.remove(kingsta2)
 else:
     print("Nothing for King's Creek TA today because it's not Wednesday :(\n")
 time.sleep(1)
@@ -344,8 +344,8 @@ if os.path.isfile(rmcg) == True:
             print("Success - RMCG done")
             time.sleep(1)
             print("Removing input files...\n")
-            # os.remove(capital)
-            # os.remove(capital2)
+            os.remove(rmcg)
+            os.remove(rmcg2)
 else:
     print("Nothing for RMCG today :(")
 
@@ -380,8 +380,8 @@ if os.path.isfile(occidental) == True:
             print("Success - Occidental done")
             time.sleep(1)
             print("Removing input files...\n")
-            # os.remove(capital)
-            # os.remove(capital2)
+            os.remove(occidental)
+            os.remove(occidental2)
 else:
     print("Nothing for occidental today because it's not Wednesday :(")
 
@@ -416,8 +416,8 @@ if os.path.isfile(prestige) == True:
             print("Success - Prestige done")
             time.sleep(1)
             print("Removing input files...\n")
-            # os.remove(capital)
-            # os.remove(capital2)
+            os.remove(prestige)
+            os.remove(prestige2)
 else:
     print("Nothing for Prestige today :(")
 # uvc
@@ -451,8 +451,8 @@ if os.path.isfile(uvc) == True:
             print("Success - UVC done")
             time.sleep(1)
             print("Removing input files...\n")
-            # os.remove(capital)
-            # os.remove(capital2)
+            os.remove(uvc)
+            os.remove(uvc2)
 else:
     print("Nothing for UVC today :(")
 # grandres
@@ -486,8 +486,8 @@ if os.path.isfile(grandres) == True:
             print("Success - Grand Res done")
             time.sleep(1)
             print("Removing input files...\n")
-            # os.remove(capital)
-            # os.remove(capital2)
+            os.remove(grandres)
+            os.remove(grandres2)
 else:
     print("Nothing for Grand Res today :(")
 
