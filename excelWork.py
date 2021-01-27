@@ -62,6 +62,9 @@ prestige3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK
 uvc = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_UVC_ALL.csv'
 uvc2 = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/Survey_Invite_-_UVC_ALL (clean).csv'
 uvc3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'UVC.csv'
+uvcta = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/UVC TA Survey Invites.csv'
+uvc2ta = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/UVC TA Survey Invites (clean).csv'
+uvc3ta = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'UVCTA.csv'
 grandres = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/GR_-_Invites.csv'
 grandres2 = '/Users/victor/PYTHON-SURVEY-DOWNLOADS/GR_-_Invites (clean).csv'
 grandres3 = '/Users/victor/Dropbox (Perspective Group)/Victor/SURVEYS/DAILY WORK/'+ today_date +'GRANDRES.csv'
@@ -455,6 +458,41 @@ if os.path.isfile(uvc) == True:
             os.remove(uvc2)
 else:
     print("Nothing for UVC today :(")
+
+time.sleep(1)
+print("Loading UVC TA \n")
+# Capital Block
+if os.path.isfile(uvcta) == True:
+    # Read input file 'csvfile'
+    data = pd.read_csv(uvcta)
+    # creates new file with duplicated data dropped
+    data[~data.duplicated(subset=['Email'])].to_csv(uvcta2, index=False)
+    with open(uvcta2) as csvfile: 
+        with open(uvcta3, "a") as output:
+            reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
+            # Define new columns for hashed/hexed data in output file
+            fieldnames = reader.fieldnames + ['TA1', 'TA2']
+            writer = csv.DictWriter(output, fieldnames)
+            # writes column names
+            writer.writeheader()
+            # writes data to each row
+            for i, r in enumerate(reader):        
+                # all data in HashString column replaced with hashed version of data
+                r['TA1'] = hashlib.md5((r['HashString']).encode('utf-8')).hexdigest()
+                # all data in HexString column replaced with ascii hex version of data
+                r['TA2'] = r['HexString'].encode().hex()
+                # writes data to new file
+                writer.writerow(r)
+            # prints to terminal to verify duplicates are gone and that hash/hex formulas worked
+            # print(data)
+            time.sleep(1)
+            print("Success - UVC TA done")
+            time.sleep(1)
+            print("Removing input files...\n")
+            os.remove(uvc)
+            os.remove(uvc2)
+else:
+    print("Nothing for UVC TA today because it is not Wednesday :(")    
 # grandres
 time.sleep(1)
 print("Loading Grand Res\n")
