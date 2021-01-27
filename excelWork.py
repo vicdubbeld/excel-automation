@@ -458,7 +458,7 @@ if os.path.isfile(uvc) == True:
             os.remove(uvc2)
 else:
     print("Nothing for UVC today :(")
-
+# uvc ta
 time.sleep(1)
 print("Loading UVC TA \n")
 # Capital Block
@@ -468,7 +468,7 @@ if os.path.isfile(uvcta) == True:
     # creates new file with duplicated data dropped
     data[~data.duplicated(subset=['Email'])].to_csv(uvc2ta, index=False)
     with open(uvc2ta) as csvfile: 
-        with open(uvc2ta, "a") as output:
+        with open(uvc3ta, "a") as output:
             reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
             # Define new columns for hashed/hexed data in output file
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
