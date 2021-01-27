@@ -466,9 +466,9 @@ if os.path.isfile(uvcta) == True:
     # Read input file 'csvfile'
     data = pd.read_csv(uvcta)
     # creates new file with duplicated data dropped
-    data[~data.duplicated(subset=['Email'])].to_csv(uvcta2, index=False)
-    with open(uvcta2) as csvfile: 
-        with open(uvcta3, "a") as output:
+    data[~data.duplicated(subset=['Email'])].to_csv(uvc2ta, index=False)
+    with open(uvc2ta) as csvfile: 
+        with open(uvc2ta, "a") as output:
             reader = csv.DictReader(csvfile, quotechar='"', delimiter=",", quoting=csv.QUOTE_ALL, skipinitialspace=True)
             # Define new columns for hashed/hexed data in output file
             fieldnames = reader.fieldnames + ['TA1', 'TA2']
@@ -489,8 +489,8 @@ if os.path.isfile(uvcta) == True:
             print("Success - UVC TA done")
             time.sleep(1)
             print("Removing input files...\n")
-            os.remove(uvc)
-            os.remove(uvc2)
+            os.remove(uvcta)
+            os.remove(uvc2ta)
 else:
     print("Nothing for UVC TA today because it is not Wednesday :(")    
 # grandres
